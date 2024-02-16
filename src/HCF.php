@@ -42,7 +42,7 @@ final class HCF extends PluginBase
         ]);
       case "sqlite":
         $this->database = libasynql::create($this, $data, [
-          "mysql" => "mysql.sql"
+          "sqlite" => "sqlite.sql"
         ]);
       case "json":
         $jsonFile = explode(".", $data["json"]["file"]);
@@ -51,5 +51,10 @@ final class HCF extends PluginBase
         }
       break;
     }
+  }
+  
+  function getProvider(): Config|DataConnector
+  {
+    return $this->database;
   }
 }
