@@ -1,0 +1,6 @@
+name: HCF
+api: 5.0.0
+main: kodexdev\hcf\HCF
+version: 0.0
+prefix: "HardCore-Factions"
+src-namespace-prefix: kodexdev\hcf
