@@ -5,7 +5,7 @@ database:
   # Edit these settings only if you choose "json".
   json:
     # The file name of the database in the plugin data folder.
-    file: data.json
+    file: data.HCF
   # Edit these settings only if you choose "sqlite".
   sqlite:
     # The file name of the database in the plugin data folder.
