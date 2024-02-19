@@ -28,9 +28,6 @@ final class HCF extends PluginBase
   
   function onLoad(): void
   {
-    if(!InvMenuHandler::isRegistered()) {
-      InvMenuHandler::register($this);
-    }
     self::setInstance($this);
     $this->saveDefaultConfig();
     $this->getLogger()->info("Loading " . self::GAMEMODE_PLUGIN . " Plugin");
@@ -38,6 +35,9 @@ final class HCF extends PluginBase
   
   function onEnable(): void
   {
+    if(!InvMenuHandler::isRegistered()) {
+      InvMenuHandler::register($this);
+    }
     $this->getLogger()->notice("Plugin enabled!!");
   }
 }
