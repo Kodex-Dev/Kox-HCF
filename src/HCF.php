@@ -44,6 +44,6 @@ final class HCF extends PluginBase
     if (\JackMD\ConfigUpdater\ConfigUpdater::checkUpdate($this, $this->getConfig(), "version", self::CONFIG_VERSION)) {
       $this->getLogger()->notice(TextFormat::GREEN . "Correct configuration version :)");
     }
-    $this->getLogger()->notice(TextFormat::GREEN . "Plugin enabled!!");
+    $this->getLogger()->info(TextFormat::GREEN . "Plugin enabled!!");
   }
 }
