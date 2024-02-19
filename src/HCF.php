@@ -38,6 +38,6 @@ final class HCF extends PluginBase
     if(!InvMenuHandler::isRegistered()) {
       InvMenuHandler::register($this);
     }
-    $this->getLogger()->notice("Plugin enabled!!");
+    $this->getLogger()->notice(TextFormat::GREEN . "Plugin enabled!!");
   }
 }
