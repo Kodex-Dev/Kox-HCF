@@ -24,13 +24,15 @@ final class HCF extends PluginBase
 {
   use SingletonTrait;
   
+  const CONFIG_VERSION = 0;
+  
   const GAMEMODE_PLUGIN = "HardCore Factions";
   
   function onLoad(): void
   {
     self::setInstance($this);
-    \JackMD\UpdateNotifier\UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     $this->saveDefaultConfig();
+    \JackMD\UpdateNotifier\UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     $this->getLogger()->info("Loading " . self::GAMEMODE_PLUGIN . " Plugin");
   }
   
@@ -38,6 +40,9 @@ final class HCF extends PluginBase
   {
     if(!InvMenuHandler::isRegistered()) {
       InvMenuHandler::register($this);
+    }
+    if (\JackMD\ConfigUpdater\ConfigUpdater::checkUpdate($this, $this->getConfig(), "version", self::CONFIG_VERSION)) {
+      $this->getLogger()->notice(TextFormat::GREEN . "Correct configuration version :)");
     }
     $this->getLogger()->notice(TextFormat::GREEN . "Plugin enabled!!");
   }
