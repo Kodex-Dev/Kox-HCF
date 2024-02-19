@@ -24,6 +24,8 @@ final class HCF extends PluginBase
 {
   use SingletonTrait;
   
+  const GAMEMODE_PLUGIN = "HardCore Factions";
+  
   function onLoad(): void
   {
     if(!InvMenuHandler::isRegistered()) {
@@ -31,6 +33,11 @@ final class HCF extends PluginBase
     }
     self::setInstance($this);
     $this->saveDefaultConfig();
+    $this->getLogger()->info("Loading " . self::GAMEMODE_PLUGIN . " Plugin");
   }
-
+  
+  function onEnable(): void
+  {
+    $this->getLogger()->notice("Plugin enabled!!");
+  }
 }
