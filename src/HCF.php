@@ -29,6 +29,7 @@ final class HCF extends PluginBase
   function onLoad(): void
   {
     self::setInstance($this);
+    \JackMD\UpdateNotifier\UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
     $this->saveDefaultConfig();
     $this->getLogger()->info("Loading " . self::GAMEMODE_PLUGIN . " Plugin");
   }
