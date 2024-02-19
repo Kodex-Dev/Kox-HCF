@@ -31,30 +31,5 @@ final class HCF extends PluginBase
     $this->saveDefaultConfig();
     $this->setProvider($this->getConfig()->get("database"));
   }
-  
-  function setProvider(array $data): void
-  {
-    if (is_null($data) || $data === []) return;
-    switch($data["type"]) {
-      case "mysql":
-        $this->database = libasynql::create($this, $data, [
-          "mysql" => "mysql.sql"
-        ]);
-      case "sqlite":
-        $this->database = libasynql::create($this, $data, [
-          "sqlite" => "sqlite.sql"
-        ]);
-      case "json":
-        $jsonFile = explode(".", $data["json"]["file"]);
-        foreach($jsonFile as $folder => $fileName) {
-          $this->database = new Config($this->getDataFolder() . $folder . DIRECTORY_SEPARATOR . $fileName . ".json", Config::JSON, []);
-        }
-      break;
-    }
-  }
-  
-  function getProvider(): Config|DataConnector
-  {
-    return $this->database;
-  }
+
 }
