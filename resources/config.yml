@@ -1,3 +1,6 @@
+# Config version
+version: 0
+
 database:
   # The database type. "sqlite", "mysql", "json" are supported.
   type: sqlite
